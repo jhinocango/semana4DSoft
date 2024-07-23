@@ -1,0 +1,422 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('https://cdn.pixabay.com/photo/2016/01/13/01/36/bagan-1137015_1280.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el body */
+    background-position: center; /* Centra la imagen en el body */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+}
+
+/* Capa semi-transparente sobre la imagen de fondo */
+body::before {
+    content: ""; /* Necesario para mostrar el pseudo-elemento */
+    position: absolute; /* Posiciona el pseudo-elemento en relación con el body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.719); /* Color negro con opacidad del 30% */
+    z-index: -1; /* Coloca la capa detrás del contenido del body */
+}
+
+/* Imagen de fondo para el header en todas las páginas */
+header {
+    position: relative; /* Necesario para posicionar el pseudo-elemento dentro del header */
+    background-image: url('https://media.istockphoto.com/id/579161816/es/foto/saraguro.jpg?s=1024x1024&w=is&k=20&c=-Ddc2YHMykiJSZbmqLzFvj27joUrFChCIwtlh-pyAPw='); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el header */
+    background-position: center; /* Centra la imagen en el header */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    color: #ffffff; /* Cambia el color del texto si es necesario para contrastar con la imagen de fondo */
+    padding: 20px 0; /* Ajusta el espaciado según sea necesario */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+/* Capa semi-transparente sobre la imagen */
+header::before {
+    content: ""; /* Necesario para mostrar el pseudo-elemento */
+    position: absolute; /* Posiciona el pseudo-elemento en relación con el header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 33, 73, 0.5); /* Gris con opacidad del 50% */
+    z-index: 1; /* Asegura que el pseudo-elemento esté sobre la imagen de fondo */
+}
+
+/* Asegúrate de que el contenido dentro del header esté encima de la capa */
+header * {
+    position: relative; /* Asegura que el contenido esté encima del pseudo-elemento */
+    z-index: 2; /* Asegura que el texto y otros elementos estén sobre la capa */
+}
+
+/* Estilos para el título y la navegación dentro del header */
+header h1 {
+    margin: 0;
+    font-size: 2em; /* Ajusta el tamaño de fuente del título si es necesario */
+}
+
+/* Estilo para el h2 en el main */
+main h2 {
+    color: #ffd001; /* Cambia el color del texto del h2 a rojo */
+    font-size: 25px;
+}
+
+/* Estilo para el párrafo en el main */
+main p {
+    color: rgb(82, 82, 99); /* Cambia el color del texto del párrafo a azul */
+}    
+
+/* Recuadro para el párrafo */
+.paragraph-box {
+    padding: 20px; /* Espacio interno */
+    border: 2px solid #ddd; /* Borde del recuadro */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo del recuadro */
+    margin: 0 auto; /* Centra el recuadro dentro de la sección */
+    max-width: 1150px; /* Ancho máximo del recuadro */
+}
+
+/* Estilo del contenedor de contenido para alinear video y tabla */
+.content-wrapper {
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    gap: 20px; /* Espacio entre el video y la tabla */
+    align-items: stretch; /* Alinea los elementos a la misma altura */
+    margin: 0 auto; /* Centra el contenido dentro de la sección */
+    max-width: 1150px; /* Ancho máximo del contenedor */
+}
+
+/* Estilo del contenedor del video */
+.video-container {
+    flex: 1; /* Permite que el video ocupe el espacio disponible */
+    max-width: 50%; /* Asegura que el contenedor del video no exceda el 50% del ancho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo del contenedor de la tabla */
+.table-container {
+    flex: 1; /* Permite que la tabla ocupe el espacio disponible */
+    max-width: 50%; /* Asegura que el contenedor de la tabla no exceda el 50% del ancho */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%; /* Asegura que la tabla ocupe todo el ancho del contenedor */
+    border-collapse: collapse; /* Elimina los espacios entre los bordes de las celdas */
+    background-color: #f9f9f9; /* Color de fondo de la tabla */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra de la tabla */
+}
+
+th, td {
+    padding: 12px; /* Espacio interno en las celdas */
+    border: 1px solid #ddd; /* Borde de las celdas */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+th {
+    background-color: #f4f4f4; /* Color de fondo de los encabezados */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 20px;
+}
+
+/* Estilos para el menú desplegable */
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative; /* Necesario para que el contenido se posicione relativo al contenedor del dropdown */
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+    color: #fff; /* Color del texto de los botones del menú */
+    text-decoration: none; /* Elimina el subrayado del texto */
+    font-size: 21px;
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Elimina el borde del botón si existe */
+    background: none; /* Asegura que el botón no tenga fondo */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #362d57c9; /* Color de fondo del menú desplegable */
+    min-width: 160px; /* Ancho mínimo del menú */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra del menú */
+    z-index: 1000; /* Asegura que el menú esté encima de otros elementos */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px; /* Espaciado interno de los elementos del menú */
+    text-decoration: none; /* Elimina el subrayado del texto */
+    display: block; /* Asegura que los enlaces ocupen todo el ancho */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd; /* Color de fondo al pasar el cursor */
+    color: rgb(51, 40, 82); /* Cambia el color del texto al pasar el cursor */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Muestra el menú desplegable al pasar el cursor */
+}
+
+.dropdown:hover .dropbtn {
+    color: #ffd001; /* Cambia el color del texto del botón al pasar el cursor */
+}
+
+nav ul li a {
+    color: #fff; /* Color del texto de los enlaces del menú */
+    text-decoration: none; /* Elimina el subrayado del texto */
+    font-size: 21px;
+}
+
+nav ul li a:hover {
+    color: #ffd001; /* Cambiar color del texto al pasar el cursor */
+}
+
+
+nav ul li a {
+    color: #fff; /* Color del texto de los enlaces del menú */
+    text-decoration: none; /* Elimina el subrayado del texto */
+    font-size: 21px;
+}
+
+nav ul li a:hover {
+    color: #ffd001;/* Cambiar color del texto al pasar el cursor */
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    background: #333;
+    color: #ffd001;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Estilos del formulario */
+.form-container {
+    max-width: 1200px; /* Aumentar el ancho máximo del contenedor del formulario */
+    width: 100%; /* Asegura que el contenedor ocupe el 100% del espacio disponible */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 40px; /* Aumentar el espaciado interno */
+    border: 1px solid #ddd; /* Borde del recuadro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    background-color: #f9f9f9; /* Color de fondo del formulario */
+    text-align: left; /* Alinear el texto a la izquierda dentro del formulario */
+}
+
+.form-container h2 {
+    text-align: center; /* Centrar el texto del encabezado */
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar los elementos del formulario */
+}
+
+.form-container .form-group {
+    width: 100%; /* Asegurar que los campos del formulario ocupen todo el ancho del contenedor */
+    margin-bottom: 20px; /* Espacio entre los grupos de campos */
+}
+
+.form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-container .form-group input,
+.form-container .form-group textarea {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 12px; /* Aumentar el espaciado interno de los campos */
+    border: 1px solid #ccc; /* Borde de los campos de formulario */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+.form-container textarea {
+    resize: vertical; /* Permitir el redimensionamiento vertical del área de texto */
+}
+
+.form-container button {
+    padding: 12px 25px; /* Aumentar el tamaño del botón */
+    background-color: #333; /* Fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 18px; /* Aumentar el tamaño del texto del botón */
+    margin-top: 10px; /* Espacio entre el último campo del formulario y el botón */
+}
+
+/* Estilo para las opciones de género */
+.gender-options {
+    display: flex;
+    align-items: center;
+    gap: 1em; /* Espacio entre opciones */
+}
+
+.gender-options label {
+    display: flex;
+    align-items: center;
+    margin-right: 1em; /* Espacio entre el círculo y el texto */
+}
+
+.gender-options input[type="radio"] {
+    margin-right: 0.5em; /* Espacio entre el radio button y el texto */
+}
+
+
+
+/* Nuevos estilos para la página tours.html */
+
+/* Estilo general para el contenedor de los tours */
+.tour-section {
+    margin: 20px auto; /* Espacio alrededor del contenedor de cada tour */
+    max-width: 1000px; /* Ancho máximo del contenedor */
+}
+
+/* Estilo para el recuadro sombreado del título */
+.highlight-title {
+    background-color: rgba(134, 69, 131, 0.925); /* Color de fondo del recuadro */
+    color: #fff; /* Color del texto dentro del recuadro */
+    padding: 10px; /* Espacio interno del recuadro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra del recuadro */
+    margin-bottom: 10px; /* Espacio debajo del recuadro */
+    width: 100%; /* Asegura que el recuadro sea del ancho del contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    text-align: center; /* Centra el texto dentro del recuadro */
+}
+
+/* Recuadro para el texto y la imagen */
+.content-box {
+    display: flex; /* Utiliza flexbox para alinear el texto y la imagen */
+    align-items: center; /* Alinea los elementos al centro verticalmente */
+    padding: 20px; /* Espacio interno del recuadro */
+    border: 2px solid #ddd; /* Borde del recuadro */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo del recuadro */
+    margin-bottom: 20px; /* Espacio entre recuadros de tours */
+    position: relative; /* Necesario para la línea de separación vertical */
+}
+
+/* Línea de separación vertical entre el texto y la imagen */
+.content-box::before {
+    content: "";
+    display: block;
+    width: 1px; /* Ancho de la línea de separación */
+    height: 80%; /* Ajusta la altura de la línea de separación */
+    background: #ddd; /* Color de la línea de separación */
+    position: absolute;
+    top: 10%; /* Coloca la línea un poco separada del borde superior */
+    left: 50%; /* Coloca la línea en el centro del contenedor */
+    transform: translateX(-50%); /* Centra la línea en relación con el contenedor */
+    z-index: 1; /* Asegura que la línea esté sobre el fondo pero debajo del contenido */
+}
+
+/* Estilo para el contenedor del texto */
+.text {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding-right: 20px; /* Espacio a la derecha para el separador */
+}
+
+/* Estilo para el contenedor de la imagen */
+.image {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+}
+
+/* Estilo para las imágenes dentro del contenedor */
+.image img {
+    max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados de la imagen */
+}
+
+/* Estilos para la sección de enlaces */
+.links-section {
+    margin: 20px auto; /* Centra el contenedor horizontalmente y agrega margen superior e inferior */
+    max-width: 1000px; /* Asegura que el contenedor tenga el mismo ancho máximo que los otros contenedores */
+}
+
+/* Estilo para el contenedor del título en la sección de enlaces */
+.links-section .highlight-title {
+    background-color: rgba(134, 69, 131, 0.925); /* Color de fondo del recuadro */
+    color: #fff; /* Color del texto dentro del recuadro */
+    padding: 10px; /* Espacio interno del recuadro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra del recuadro */
+    margin-bottom: 20px; /* Espacio debajo del recuadro */
+    width: 100%; /* Asegura que el recuadro sea del ancho del contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    text-align: center; /* Centra el texto dentro del recuadro */
+}
+
+/* Estilo para el contenedor del texto dentro de la sección de enlaces */
+.links-section .text {
+    padding: 20px; /* Espaciado interno del contenedor de enlaces */
+    text-align: left; /* Alinea el texto a la izquierda dentro del contenedor */
+    border: 2px solid #ddd; /* Borde del recuadro de enlaces */
+    border-radius: 8px; /* Bordes redondeados del recuadro de enlaces */
+    background-color: #f9f9f9; /* Color de fondo del recuadro de enlaces */
+    width: 100%; /* Asegura que el recuadro sea del ancho del contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Estilo para los enlaces dentro de la sección de enlaces */
+.links-section a {
+    color: #2114cf; /* Color del texto de los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+.links-section a:hover {
+    text-decoration: underline; /* Añade subrayado al pasar el cursor sobre el enlace */
+}
+
+/* Estilo para los párrafos dentro de la sección de enlaces */
+.links-section p {
+    margin: 10px 0; /* Espacio superior e inferior para los párrafos */
+}
